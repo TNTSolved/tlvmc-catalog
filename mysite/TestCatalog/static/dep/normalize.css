@@ -1,0 +1,183 @@
+/*! normalize.css v4.0.0 | MIT License | github.com/necolas/normalize.css */
+.chat-container html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+.chat-container body {
+    margin: 0
+}
+
+.chat-container article, .chat-container aside, .chat-container details, .chat-container figcaption, .chat-container figure, .chat-containerfooter, .chat-containerheader, .chat-container main, .chat-container menu, .chat-container nav, .chat-container section, .chat-container summary {
+    display: block
+}
+
+.chat-container audio, .chat-container canvas, .chat-container progress, .chat-container video {
+    display: inline-block
+}
+
+    .chat-container audio:not([controls]) {
+        display: none;
+        height: 0
+    }
+
+.chat-container progress {
+    vertical-align: baseline
+}
+
+.chat-container template, .chat-container [hidden] {
+    display: none
+}
+
+.chat-container a {
+    background-color: transparent
+}
+
+    .chat-container a:active, a:hover {
+        outline-width: 0
+    }
+
+.chat-container abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted
+}
+
+.chat-container b, .chat-container strong {
+    font-weight: inherit
+}
+
+.chat-container b, .chat-container strong {
+    font-weight: bolder
+}
+
+.chat-container dfn {
+    font-style: italic
+}
+
+.chat-container h1 {
+    font-size: 2em;
+    margin: 0.67em 0
+}
+
+.chat-container mark {
+    background-color: #ff0;
+    color: #000
+}
+
+.chat-container small {
+    font-size: 80%
+}
+
+.chat-container sub, .chat-container sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+
+.chat-container sub {
+    bottom: -0.25em
+}
+
+sup {
+    top: -0.5em
+}
+
+img {
+    border-style: none
+}
+
+.chat-container svg:not(:root) {
+    overflow: hidden
+}
+
+.chat-container code, .chat-container kbd, .chat-container pre, .chat-container samp {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+
+.chat-container figure {
+    margin: 1em 40px
+}
+
+.chat-container hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible
+}
+
+.chat-container button, .chat-container input, .chat-container select, .chat-container textarea {
+    font: inherit;
+    margin: 0
+}
+
+.chat-container optgroup {
+    font-weight: bold
+}
+
+.chat-container button, .chat-container input, .chat-container select {
+    overflow: visible
+}
+
+.chat-container button, .chat-container select {
+    text-transform: none
+}
+
+.chat-container button, .chat-container [type="button"], .chat-container [type="reset"], .chat-container [type="submit"] {
+    cursor: pointer
+}
+
+.chat-container [disabled] {
+    cursor: default
+}
+
+.chat-container button, .chat-container html [type="button"], .chat-container [type="reset"], .chat-container [type="submit"] {
+    -webkit-appearance: button
+}
+
+    .chat-container button::-moz-focus-inner, .chat-container input::-moz-focus-inner {
+        border: 0;
+        padding: 0
+    }
+
+    .chat-container button:-moz-focusring, .chat-container input:-moz-focusring {
+        outline: 1px dotted ButtonText
+    }
+
+.chat-container fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em
+}
+
+.chat-container legend {
+    box-sizing: border-box;
+    color: inherit;
+    display: table;
+    max-width: 100%;
+    padding: 0;
+    white-space: normal
+}
+
+.chat-container textarea {
+    overflow: auto
+}
+
+.chat-container [type="checkbox"], .chat-container [type="radio"] {
+    box-sizing: border-box;
+    padding: 0
+}
+
+.chat-container [type="number"]::-webkit-inner-spin-button, .chat-container [type="number"]::-webkit-outer-spin-button {
+    height: auto
+}
+
+.chat-container [type="search"] {
+    -webkit-appearance: textfield
+}
+
+    .chat-container [type="search"]::-webkit-search-cancel-button, .chat-container [type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none
+    }

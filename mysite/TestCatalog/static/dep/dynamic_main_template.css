@@ -1,0 +1,120 @@
+
+.navbar-default{
+	background-color: #34495E;
+}
+
+.breadCrumbs a, .breadCrumbs{
+	color: #34495E !important;
+}
+
+.carousel-caption{
+	background-color:rgba(255,255,255,0.8);
+}
+
+.footer{
+	background-color: #E6E5E3;
+}
+
+.subscribeButton{
+	background-color: #1ABC9C;
+}
+
+.footerSideContent{
+	color: #34495E !important;
+	background-color: #F3F2F1;
+}
+
+.footer, h4.footerMapText, .footer a{
+	color: #34495e !important;
+}
+
+.bottomCredits{
+	color: #34495E !important;
+	background-color: #F0EFEE;
+}
+
+.homeEventsFeed .titleLine{
+	background-color: #1ABC9C;
+}
+
+.sideMenuWrap .sideMenuChild:hover{
+	background-color: #343434;
+}
+
+.bottomMenuCategory h4{
+	color: #34495E !important;
+}
+
+.mainBannerText a, .mainBannerText  a:visited{
+	color: #34495E !important;
+}
+
+.mainBannerText{
+	color: #34495E !important;
+}
+
+.carousel-caption h1{
+	color: #16274D !important;
+}
+
+.navbar-default .navbar-toggle{
+	background-color: #f6f6f8;
+}
+
+.homeNewsFeed .titleLine{
+	background-color: #1ABC9C;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus{
+	background-color: #2ad4b1;
+}
+
+.slick-prev:before, .slick-next:before{
+	color: #D3D3D3;
+}
+
+.navbar-default .navbar-toggle .icon-bar{
+	background-color: #34495e;
+}
+
+.homeNewsFeed .galleryArrowRight, .homeNewsFeed .galleryArrowLeft{
+	color: #DBDBDB !important;
+	background-color: #FFF;
+}
+
+.navbar-default .navbar-toggle:hover .icon-bar, .navbar-default .navbar-toggle:focus .icon-bar{
+	background-color: #f6fffa;
+}
+
+.sideMenuToggle{
+	background-color: #f6f6f8;
+	fill: #34495e;
+}
+
+.homeEventsFeed .galleryArrowRight, .homeEventsFeed .galleryArrowLeft{
+	color: #DBDBDB !important;
+	background-color: #FFF;
+}
+
+.sideMenuToggle:hover, .sideMenuToggle:hover svg *{
+	background-color: #1ABC9C;
+	fill: #ffffff;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus,.multi-column-dropdown li a:hover{
+	color: #FFF !important;
+	background-color: #1ABC9C;
+}
+
+.sideMenuToggle svg{
+	fill: #34495e;‎
+}
+
+.cd-primary-nav .cd-secondary-nav a{
+	color: #16274D !important;
+}
+
+.cd-primary-nav .cd-secondary-nav a:hover{
+	color: #FFF !important;
+	background-color: #16274D;
+}

@@ -1,0 +1,79 @@
+@charset "utf-8";
+.searchPage .item{
+    color: #222222;
+    font-size: 16px;
+}
+body{
+    text-align: justify;
+}
+.element { direction: rtl; }
+
+
+.searchPage .lettersWrap{
+    margin-top: 2%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d6d6d6;
+}
+.searchPage .letterLink{
+    width: 34px;
+    height: 37px;
+    background-color: #ececec;
+    color: #222222;
+    font-size: 18px;
+    display: inline-block;
+    margin-right: 4px;
+    cursor: pointer;
+    text-align: center;
+    padding-top: 5px;
+    margin-bottom: 5px;
+}
+
+.searchPage .letterLink:hover{
+    background-color: #1abc9c;
+    color: #ffffff;
+}
+
+.searchPage .searchBox{
+    width: 210px;
+    height: 46px;
+    border: 1px solid #D3D3D3;
+    padding: 0 10px;
+    box-shadow: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.searchBoxButton{
+    background-color: #17bd99;
+    padding: 12px 26px;
+    color: #ffffff;
+    font-size: 16px;
+    display: inline-block;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor:pointer;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.searchBoxButton:hover{
+    background-color: #34495e;
+}
+
+
+.searchPage .clinicArrow{
+    background-image: url(https://www.sheba.co.il/site/images/clinics_arrow_sprite.png);
+    width: 20px;
+    height: 33px;
+            background-position: bottom left;
+    }
+
+.searchPage .item:hover .itemIcon{
+    background-color: #34495e;
+}
+
+.searchPage .item:hover .clinicArrow{
+            background-position: top left;
+    }

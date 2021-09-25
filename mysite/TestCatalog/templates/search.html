@@ -1,0 +1,136 @@
+{% extends './base_generic.html'%}
+<!-- Bootstrap-4.5.2 RTL from: https://github.com/MahdiMajidzadeh/bootstrap-v4-rtl -->
+
+{%block content%}
+<main class="pageWrapper">
+        <div class="container searchPage">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-8 col-lg-8">
+                    <h1>אינדקס בדיקות מעבדה</h1>
+                                <div class="richtext"></div>
+                    
+                    <div class="searchRow">
+                        <input class="searchBox" id="searchByName" type="text" placeholder="מה שם הבדיקה?">
+                        <div onclick="searchByName()" class="searchBoxButton">חיפוש</div>
+                    </div>
+                    
+                    <!-- Letters Search -->
+
+                        <div class="lettersWrap">
+                                        <div onclick="searchAlpha('א')" class="letterLink">א</div>
+                                        <div onclick="searchAlpha('ב')" class="letterLink">ב</div>
+                                        <div onclick="searchAlpha('ג')" class="letterLink">ג</div>
+                                        <div onclick="searchAlpha('ד')" class="letterLink">ד</div>
+                                        <div onclick="searchAlpha('ה')" class="letterLink">ה</div>
+                                        <div onclick="searchAlpha('ו')" class="letterLink">ו</div>
+                                        <div onclick="searchAlpha('ז')" class="letterLink">ז</div>
+                                        <div onclick="searchAlpha('ח')" class="letterLink">ח</div>
+                                        <div onclick="searchAlpha('ט')" class="letterLink">ט</div>
+                                        <div onclick="searchAlpha('י')" class="letterLink">י</div>
+                                        <div onclick="searchAlpha('כ')" class="letterLink">כ</div>
+                                        <div onclick="searchAlpha('ך')" class="letterLink">ך</div>
+
+                                        <div onclick="searchAlpha('ל')" class="letterLink">ל</div>
+                                        <div onclick="searchAlpha('מ')" class="letterLink">מ</div>
+                                        <div onclick="searchAlpha('ם')" class="letterLink">ם</div>
+
+                                        <div onclick="searchAlpha('נ')" class="letterLink">נ</div>
+                                        <div onclick="searchAlpha('ן')" class="letterLink">ן</div>
+
+                                        <div onclick="searchAlpha('ס')" class="letterLink">ס</div>
+                                        <div onclick="searchAlpha('ע')" class="letterLink">ע</div>
+                                        <div onclick="searchAlpha('פ')" class="letterLink">פ</div>
+                                        <div onclick="searchAlpha('ף')" class="letterLink">ף</div>
+
+                                        <div onclick="searchAlpha('צ')" class="letterLink">צ</div>
+                                        <div onclick="searchAlpha('ץ')" class="letterLink">ץ</div>
+
+                                        <div onclick="searchAlpha('ק')" class="letterLink">ק</div>
+                                        <div onclick="searchAlpha('ר')" class="letterLink">ר</div>
+                                        <div onclick="searchAlpha('ש')" class="letterLink">ש</div>
+                                        <div onclick="searchAlpha('ת')" class="letterLink">ת</div>
+                                        <div onclick="searchAlpha('a')" class="letterLink">a</div>
+                                        <div onclick="searchAlpha('b')" class="letterLink">b</div>
+                                        <div onclick="searchAlpha('c')" class="letterLink">c</div>
+                                        <div onclick="searchAlpha('d')" class="letterLink">d</div>
+                                        <div onclick="searchAlpha('e')" class="letterLink">e</div>
+                                        <div onclick="searchAlpha('f')" class="letterLink">f</div>
+                                        <div onclick="searchAlpha('g')" class="letterLink">g</div>
+                                        <div onclick="searchAlpha('h')" class="letterLink">h</div>
+                                        <div onclick="searchAlpha('i')" class="letterLink">i</div>
+                                        <div onclick="searchAlpha('j')" class="letterLink">j</div>
+                                        <div onclick="searchAlpha('k')" class="letterLink">k</div>
+                                        <div onclick="searchAlpha('l')" class="letterLink">l</div>
+                                        <div onclick="searchAlpha('m')" class="letterLink">m</div>
+                                        <div onclick="searchAlpha('n')" class="letterLink">n</div>
+                                        <div onclick="searchAlpha('o')" class="letterLink">o</div>
+                                        <div onclick="searchAlpha('p')" class="letterLink">p</div>
+                                        <div onclick="searchAlpha('q')" class="letterLink">q</div>
+                                        <div onclick="searchAlpha('r')" class="letterLink">r</div>
+                                        <div onclick="searchAlpha('s')" class="letterLink">s</div>
+                                        <div onclick="searchAlpha('t')" class="letterLink">t</div>
+                                        <div onclick="searchAlpha('u')" class="letterLink">u</div>
+                                        <div onclick="searchAlpha('v')" class="letterLink">v</div>
+                                        <div onclick="searchAlpha('w')" class="letterLink">w</div>
+                                        <div onclick="searchAlpha('x')" class="letterLink">x</div>
+                                        <div onclick="searchAlpha('y')" class="letterLink">y</div>
+                                        <div onclick="searchAlpha('z')" class="letterLink">z</div>
+                                        <div onclick="searchAlpha('all')" class="searchBoxButton">הצגת כל הבדיקות</div>
+                        </div>
+                    <!-- END Letters Search -->
+                
+                    <!--Doctors Search Items-->
+                        <h2 class="searchCategodyTitle">תוצאות חיפוש בדיקות</h2>
+            
+                        <div id ='searchResults'>
+                            <div id="childrenWrap">		
+                            {%if tests%}
+                                {%for t in tests%}
+                                <a href="" title="{{t.name}}" class="row item">  
+                                    <!-- ITEM ICON -->
+
+                                    <!-- ITEM TITLE -->
+                                    <div class="col-10 col-sm-11 col-md-11 col-lg-11 itemText">
+                                            <h3>{{t.name}}</h3>
+                                    </div>
+
+                                    <!-- ITEM Arrow -->
+                                    <div class="col-2 col-sm-1 col-md-1 col-lg-1 itemArrow">
+                                        <div class="clinicArrow"></div>
+                                    </div>
+                                    </a>
+                                {%endfor%}
+                            {%else%}
+                                 
+                                 <div class="col-10 col-sm-11 col-md-11 col-lg-11 itemText">
+                                            <h3>הקש על אות או חפש בדיקה</h3>
+                                    </div>
+
+                            {%endif%}
+                            </div>
+                        </div>
+</main>
+{% endblock %}
+
+
+{%block scripts%}
+
+<script>
+function searchAlpha(letter)
+{
+
+location.href = "/TestCatalog/search/"+letter
+
+}
+
+function searchByName()
+{
+    var text = document.getElementById('searchByName');
+    location.href = "/TestCatalog/search/text/"+ text.value;
+
+
+
+}
+</script>
+
+{%endblock%}

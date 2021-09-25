@@ -1,0 +1,99 @@
+.chat-container .chat .chat-title {
+    height: 65px;
+}
+
+    .chat-container .chat .chat-title .chatTitleContainer {
+        background-image: url(logo_shiba_chat.png);
+        top: 30px;
+    }
+
+.chat-container .head-container {
+    background-image: url(shiba_tab_logo_open.png);
+}
+
+    .chat-container .head-container.opened {
+        background-image: url(shiba_tab_logo_close.png) !important;
+    }
+
+    .chat-container .head-container.opened {
+        background-image: url(shiba_tab_logo_close.png) !important;
+    }
+
+
+
+
+.message-logo.right {
+    border: 2px solid #34495e;
+}
+
+.message-logo.left {
+    border: 2px solid #34495e;
+}
+
+.answer-selected {
+    background-color: #34495e !important;
+}
+
+.message-logo.left.bot {
+    background: url(logo-sheba-bot-new.png);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: 50% 46%;
+    background-color: #171f72;
+    border: none;
+    position: absolute;
+    left: 0px;
+    bottom: 5px;
+}
+.message-logo.left {
+    background: url(logo-sheba-bot-new.png);
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: 50% 46%;
+    background-color: #171f72;
+    border: none;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+
+
+.chat-container .chat .message-box .text-input-container .message-input {
+    border-color: #34495e;
+}
+.chat-container .chat .messages .message.message-personal {
+	background-color: white !important
+}
+.massage-wrapper {
+	position:relative
+}
+
+.chat-container .chat .message-box .send-container .button-placer {
+    background-image: url(send_icon_shiba.png);
+}
+
+.simplechat-ic_file {
+    background-image: url(add_icon_shiba.png);
+}
+div#welcomer {
+    background-image: url(logo-sheba.png);
+	padding-top: 175px;
+	background-size: 240px;
+	margin-top: 40px;
+    margin-bottom: 40px;
+	background-color: transparent !important;
+	    color: #000;
+}
+
+@media screen and (max-width: 768px) {
+    .head-container-mobile {
+        height: 80px;
+        top: 50px;
+    }
+
+        .head-container-mobile.opened {
+            background-position-y: 500px;
+            transition: none;
+            background-image: none !important;
+        }
+}
