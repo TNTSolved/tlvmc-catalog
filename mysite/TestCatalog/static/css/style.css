@@ -8,6 +8,13 @@ body{
 }
 .element { direction: rtl; }
 
+h3{
+    font-size: 1.3rem;
+}
+
+.testArrow :hover{
+    color:#337ab7;
+}
 
 .searchPage .lettersWrap{
     margin-top: 2%;
@@ -29,7 +36,7 @@ body{
 }
 
 .searchPage .letterLink:hover{
-    background-color: #1abc9c;
+    background-color: #337ab7;
     color: #ffffff;
 }
 
@@ -45,7 +52,7 @@ body{
 }
 
 .searchBoxButton{
-    background-color: #17bd99;
+    background-color:#4F7AA0;
     padding: 12px 26px;
     color: #ffffff;
     font-size: 16px;
