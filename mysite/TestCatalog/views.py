@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .models import Test
 from django.views.generic import View
+
  
 # Create your views here.
 def LabView(request,*args, **kwargs):
@@ -32,3 +33,17 @@ class searchView(View):
     
 def searchViewText(request,text):
     return render(request,"search.html",context={"tests" : Test.objects.filter(name__icontains = text)})
+
+class TestDetailView(View):
+
+    template = "testView.html"
+
+    def get(self,request,id):
+        test = Test.objects.filter(id = id)
+        context = {
+            "test" : test,}
+
+
+        
+    
+        return render(request,self.template,context)

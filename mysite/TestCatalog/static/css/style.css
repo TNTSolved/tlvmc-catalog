@@ -84,3 +84,19 @@ h3{
 .searchPage .item:hover .clinicArrow{
             background-position: top left;
     }
+
+.nav-link.active{
+    
+    border-bottom: solid 3px #4F7AA0;
+}
+a{
+    color:gray
+}
+
+a.active{
+    color:#464646
+}
+
+a:hover{
+    color:#464646
+}
