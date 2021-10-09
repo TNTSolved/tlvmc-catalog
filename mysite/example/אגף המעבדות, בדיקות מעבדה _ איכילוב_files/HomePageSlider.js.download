@@ -1,0 +1,163 @@
+﻿
+var slipprySlides;
+var playerModule = (function () {
+    var player;
+    var done = false;
+    return {
+        onYouTubeIframeAPIReady: function () {
+            $('.sliderControls').on('click', function () {
+                if ($('#slippry-demo').find('#player-container')[0] != undefined) {
+                    var isPlay = $(this).attr('data-play') == 'play';
+                    if (!isPlay) {
+                        playerModule.player.pauseVideo();
+                        $(this).addClass('paused');
+                        $(this).attr('data-play', 'play');
+                    }
+                    else {
+                        playerModule.player.playVideo();
+                        $(this).removeClass('paused');
+                        $(this).attr('data-play', 'stop');
+                    }
+                }
+            })
+
+            var _player = $('#player');
+            var videoId = $(_player).attr('data-video');
+
+            playerModule.player = new YT.Player('player', {
+                height: '766px',
+                width: '1362px',
+                videoId: videoId,
+                playerVars: { 'autoplay': 1, 'controls': 0, 'rel': 0 },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange,
+                }
+            });
+        },
+
+        onPlayerReady: function (event) {
+            event.target.playVideo();
+        },
+
+        onPlayerStateChange: function (event) {
+            if (slipprySlides.getCurrentSlide()[0].id == "player-container")// if we are currently at a video slide, the slider's
+                // pause and play buttons becomes the video's pause and play buttons temporarily until the video is over
+            {
+                if (event.data == 1) { // start
+                    $('.sliderControls').removeClass('paused');
+                    $('.sliderControls').attr('data-play', 'stop');
+                    slipprySlides.stopAuto();
+                }
+                else if (event.data == 0) { //video finished
+                    console.log("finished video event fired");
+                    slipprySlides.goToSlide(1);
+                    slipprySlides.startAuto();
+                }
+                else { //pause
+                    $('.sliderControls').addClass('paused');
+                    $('.sliderControls').attr('data-play', 'play');
+                }
+            }
+        }
+    };
+
+})();
+
+
+
+var player;
+var onYouTubeIframeAPIReady = function () {
+    playerModule.onYouTubeIframeAPIReady();
+}
+
+var onPlayerReady = function (event) {
+    playerModule.onPlayerReady(event);
+}
+
+var done = false;
+var onPlayerStateChange = function (event) {
+    playerModule.onPlayerStateChange(event);
+}
+
+var stopVideo = function () {
+    playerModule.stopVideo();
+}
+
+if (jQuery("#slippry-demo li").length < 2) { // hide slider control button when you have just one item
+    jQuery(".sliderControls").hide();
+}
+
+
+jQuery(document).ready(function () {
+    var videoExistsInSlider = false;
+    if ($('#slippry-demo').find('#player-container')[0] != undefined && detectMobile() == false) {
+        videoExistsInSlider = true;
+        $(".mobileImageInsteadVideo").remove(); // remove mobile image from li if user is browsing on desktop
+    }
+    else {
+        $("#player").remove(); // remove video-player elements
+        $("#video-control").remove();
+    }
+
+    if (videoExistsInSlider) {
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    }
+    jQuery("#scrollto-section-1,#searchInput,.sy-pager").mouseenter(function () {
+        slipprySlides.stopAuto();
+    });
+    jQuery("#scrollto-section-1").mouseleave(function () {
+        slipprySlides.startAuto();
+    });
+
+    jQuery(".sliderControls a.start").hide();
+    jQuery(".sliderControls a.start").click(function () {
+        slipprySlides.startAuto();
+        jQuery(this).hide();
+        jQuery(".sliderControls a.stop").show();
+    });
+    jQuery(".sliderControls a.stop").click(function () {
+        slipprySlides.stopAuto();
+        jQuery(this).hide();
+        jQuery(".sliderControls a.start").show();
+        jQuery("#scrollto-section-1").unbind('mouseenter mouseleave');
+    });
+
+
+
+
+    slipprySlides = jQuery('#slippry-demo').slippry({
+        auto: !videoExistsInSlider, // if the slider has a video in it, auto should be false on load
+        onSlideAfter: function (slide, oldIndex, newIndex) {
+            // important comment: video slide can be only in first slide!!!
+            if (videoExistsInSlider) {
+                if (newIndex == 0) {
+                    if (oldIndex != 0) { // not first round of slides
+                        slipprySlides.stopAuto();
+                        playerModule.player.playVideo();
+                    }
+                }
+            }
+        },
+        onSlideBefore: function (slide, oldIndex, newIndex) {
+            if (videoExistsInSlider) {
+                if (oldIndex != 0 && newIndex == 0) //if not first round of video slide. play the video in case the video finished in first round
+                {
+                    playerModule.player.playVideo();
+                }
+                else if (oldIndex == 0 && newIndex != 0) //if we are moving from video slide to different slide
+                {
+                    playerModule.player.stopVideo();
+                }
+            }
+        }
+    });
+
+
+});
+
+
+

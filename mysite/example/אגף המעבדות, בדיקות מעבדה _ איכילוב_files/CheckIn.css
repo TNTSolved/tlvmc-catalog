@@ -1,0 +1,277 @@
+.checkinWrapper .patient-details-wrapper {
+  padding-right: 0;
+  margin-bottom: 10px;
+  margin-top: 15px; }
+.checkinWrapper .requaerd-fields-text {
+  float: left;
+  font-weight: bold;
+  font-size: 18px; }
+.checkinWrapper .must-fill {
+  color: #ec008c; }
+.checkinWrapper .openning-state {
+  font-weight: bold;
+  font-size: 20px; }
+
+form.form-horizontal label {
+  font-size: 19px; }
+form.form-horizontal .glyphicon-question-sign {
+  margin-left: 6px;
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+  border: 1px solid black;
+  font-size: 14px; }
+form.form-horizontal .tooltip-cover {
+  position: relative;
+  display: inline-block;
+  margin-left: 2px !important; }
+form.form-horizontal .tooltip-cover .tooltipcontent {
+  visibility: hidden;
+  width: 100px;
+  background-color: #ec008c;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 100;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 14px; }
+form.form-horizontal .tooltip-cover .tooltipcontent::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #ec008c transparent transparent transparent; }
+form.form-horizontal .tooltip-cover:hover .tooltipcontent {
+  visibility: visible;
+  opacity: 1; }
+form.form-horizontal fieldset {
+  background-color: #f1f2f2;
+  padding-right: 10px; }
+  form.form-horizontal fieldset img {
+    width: 18px;
+    height: 18px;
+    margin-top: 8px; }
+  form.form-horizontal fieldset input {
+    border-radius: 4px !important;
+    height: 42px !important;
+    font-size: 18px; }
+  form.form-horizontal fieldset select {
+    height: 42px !important;
+    font-size: 18px; }
+  form.form-horizontal fieldset button {
+    height: 40px; }
+  form.form-horizontal fieldset .new-service {
+    margin-top: 16px;
+    padding: 0px; }
+  form.form-horizontal fieldset .obligation_exp {
+    margin-right: 0px;
+    padding-left: 40px; }
+    form.form-horizontal fieldset .obligation_exp label {
+      margin-right: 0px !important; }
+    form.form-horizontal fieldset .obligation_exp #datetimepicker input#date {
+      border-top-left-radius: 0px !important;
+      border-bottom-left-radius: 0 !important; }
+  form.form-horizontal fieldset .first-section {
+    border-bottom: 2px solid white;
+    padding: 0px; }
+    form.form-horizontal fieldset .first-section img {
+      margin-right: 15px; }
+    form.form-horizontal fieldset .first-section .glyphicon-question-sign {
+      margin-right: 20px; }
+    form.form-horizontal fieldset .first-section div:first-child {
+      margin-left: 30px; }
+  form.form-horizontal fieldset .second-section {
+    border-bottom: 2px solid white; }
+  form.form-horizontal fieldset .third-section {
+    padding-left: 0; }
+    form.form-horizontal fieldset .third-section div:nth-child(2) {
+      margin-left: 24px; }
+    form.form-horizontal fieldset .third-section button[name="deleteObligation"] {
+      border: none;
+      background: transparent;
+      color: #3e739f;
+      font-size: 18px;
+      text-align: center;
+      vertical-align: middle;
+      padding-top: 8px;
+      margin: 0; }
+      form.form-horizontal fieldset .third-section button[name="deleteObligation"] .glyphicon-trash {
+        margin-left: 4px; }
+    form.form-horizontal fieldset .third-section button[name="deleteObligation"]:hover {
+      text-decoration-line: underline; }
+    form.form-horizontal fieldset .third-section .form-group .inputGroupContainer {
+      padding-right: 0;
+      padding-left: 15px; }
+      form.form-horizontal fieldset .third-section .form-group .inputGroupContainer button.add_field_button {
+        height: 40px;
+        font-size: 18px;
+        width: 137px;
+        color: #3e739f; }
+    form.form-horizontal fieldset .third-section h3 {
+      display: inline-block;
+      margin-left: 15px;
+      margin-top: 15px; }
+      form.form-horizontal fieldset .third-section h3 .glyphicon-trash {
+        margin-left: 6px;
+        font-size: 15px; }
+    form.form-horizontal fieldset .third-section h3:nth-child(1) {
+      display: block; }
+    form.form-horizontal fieldset .third-section .delete_field {
+      color: #3e739f;
+      font-size: 17px;
+      height: 22px; }
+      form.form-horizontal fieldset .third-section .delete_field .glyphicon-trash {
+        margin-left: 6px;
+        font-size: 15px; }
+    form.form-horizontal fieldset .third-section .delete_field:hover {
+      background-color: transparent;
+      border-bottom: 1px solid #3e739f; }
+    form.form-horizontal fieldset .third-section .add-service-code {
+      margin-bottom: 20px;
+      padding-right: 0px; }
+      form.form-horizontal fieldset .third-section .add-service-code button {
+        background-color: #3e739f;
+        color: #ffffff;
+        font-size: 18px; }
+      form.form-horizontal fieldset .third-section .add-service-code button:hover {
+        background-color: #224f75; }
+  form.form-horizontal fieldset .new-section {
+    padding-right: 0px;
+    padding-left: 0px; }
+    form.form-horizontal fieldset .new-section div:nth-child(1) {
+      padding-right: 0px; }
+      form.form-horizontal fieldset .new-section div:nth-child(1) h3 {
+        display: inline-block !important; }
+    form.form-horizontal fieldset .new-section .form-group div {
+      padding: 0px; }
+  form.form-horizontal fieldset h3 {
+    color: #3e739f; }
+    form.form-horizontal fieldset h3 span {
+      color: #3e739f; }
+    form.form-horizontal fieldset h3 span:nth-child(2) {
+      margin-right: 15px;
+      font-size: 17px; }
+  form.form-horizontal fieldset .form-group #obligation-error, .form-group #date-obligation-error {
+    float: right;
+    width: 100%;
+    display: block; }
+  form.form-horizontal fieldset .form-group label {
+    text-align: right; }
+  form.form-horizontal fieldset .form-group input#service_code {
+    margin-left: 32px; }
+  form.form-horizontal fieldset .form-group .service-code {
+    padding: 2px 5px;
+    height: 35px; }
+  form.form-horizontal fieldset .form-group input#obligation_code {
+    width: 47%;
+    margin-left: 10px; }
+  form.form-horizontal fieldset .form-group .obligation_code {
+    padding: 2px 5px;
+    height: 35px; }
+  form.form-horizontal fieldset .input-group-addon {
+    border-bottom-left-radius: 4px;
+    border-top-left-radius: 4px;
+    border: 1px solid #ababab;
+    border-right: none;
+    background-color: #3e739f;
+    padding: 8px !important; }
+  form.form-horizontal fieldset .input-group-addon:hover {
+    background-color: #244a6a; }
+  form.form-horizontal fieldset .glyphicon-calendar {
+    color: white;
+    height: 24px;
+    width: 29px;
+    margin: 0; }
+  form.form-horizontal fieldset .has-error .help-block {
+    display: block;
+    width: 100%;
+    float: right;
+    margin: 0px; }
+form.form-horizontal .submit-btn {
+  padding-left: 0;
+  margin-left: 0px; }
+  form.form-horizontal .submit-btn .btn-success {
+    float: left;
+    margin-top: 20px;
+    height: 44px;
+    background-color: #85a924;
+    font-size: 22px;
+    color: #1d1d1d;
+    margin-bottom: 65px; }
+  form.form-horizontal .submit-btn .btn-success:hover {
+    background-color: #648116;
+    color: white; }
+
+@media (max-width: 1200px) {
+  #obligation_code {
+    width: 46% !important; }
+
+  .new-section {
+    padding-left: 0px !important; }
+
+  button[name="deleteObligation"] {
+    width: 130px;
+    padding: 0; } }
+@media (max-width: 990px) {
+  .obligation_exp {
+    margin-right: -15px !important; }
+
+  .third-section {
+    padding-left: 0px !important; }
+
+  #datetimepicker {
+    width: 102%; } }
+@media (max-width: 769px) {
+  form.form-horizontal fieldset .form-group label {
+    margin: 0;
+    margin-top: 7px; } }
+@media (max-width: 404px) {
+  form.form-horizontal fieldset .third-section .form-group .inputGroupContainer button.add_field_button {
+    width: 130px;
+    padding: 0px; }
+
+  #obligation_code {
+    width: 38% !important;
+    margin-left: 5px; } }
+@media (max-width: 350px) {
+  form.form-horizontal fieldset .third-section .form-group .inputGroupContainer {
+    width: 114%;
+    padding-right: 0; }
+
+  .checkinWrapper .requaerd-fields-text {
+    display: block;
+    float: none;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left; }
+
+  form.form-horizontal fieldset .form-group input#obligation_code {
+    width: 100% !important;
+    margin-bottom: 6px; }
+
+  form.form-horizontal fieldset .third-section .form-group .inputGroupContainer button.add_field_button {
+    font-size: 14px; }
+
+  form.form-horizontal fieldset .obligation_exp {
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+    width: 100% !important; }
+
+  #datetimepicker {
+    width: 100% !important; }
+
+  form.form-horizontal fieldset .first-section .form-group {
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+    width: 104% !important; } }
+
+/*# sourceMappingURL=CheckIn.css.map */
