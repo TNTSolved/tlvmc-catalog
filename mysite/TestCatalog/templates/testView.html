@@ -1,6 +1,10 @@
 {% extends './base_generic.html'%}
 
 {% block content%}
+<br>
+<div id="back" class="searchBoxButton" style="margin-right: 2%;" onclick="location.href = '/TestCatalog/search';">לחזרה לחיפוש הבדיקות</div>
+<br>
+<br>
 <!-- Classic tabs -->
 <div class="classic-tabs border rounded px-4 pt-1">
 
@@ -24,160 +28,116 @@
   <hr>
   <div class="tab-content" id="advancedTabContent">
     <div class="tab-pane fade show active" id="testInfo" role="tabpanel" aria-labelledby="testInfo-tab">
-      <h5>Product testInfo</h5>
-      <p class="small text-muted text-uppercase mb-2">Shirts</p>
-      <ul class="rating">
-        <li>
-          <i class="fas fa-star fa-sm text-primary"></i>
-        </li>
-        <li>
-          <i class="fas fa-star fa-sm text-primary"></i>
-        </li>
-        <li>
-          <i class="fas fa-star fa-sm text-primary"></i>
-        </li>
-        <li>
-          <i class="fas fa-star fa-sm text-primary"></i>
-        </li>
-        <li>
-          <i class="far fa-star fa-sm text-primary"></i>
-        </li>
-      </ul>
-      <h6>12.99 $</h6>
-      <p class="pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
-        error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
-        officia quis dolore quos sapiente tempore alias.</p>
+      <h5>קוד הבדיקה</h5>
+      <p>{{test.testcode}}</p>
+      <h5>שם הבדיקה</h5>
+      <p class="">{{test.name}}</p>
+      {%if test.addname%}
+      <h5>שמות נוספים</h5>
+      <p class="">{{test.addnames}}</p>
+      {%endif%}
+      {%if test.paneldetails%}
+      <h5>פרטי הפאנל</h5>
+      <p class="">{{test.paneldetails}}</p>
+      {%endif%}
+      {%if test.posttests%}
+      <h5>בדיקות אוחרות</h5>
+      <p class="">{{test.posttests}}</p>
+      {%endif%}
+
+     
     </div>
+
     <div class="tab-pane fade" id="sampling" role="tabpanel" aria-labelledby="sampling-tab">
-      <h5><span>1</span> review for <span>Fantasy T-shirt</span></h5>
-      <div class="media mt-3 mb-4">
-        <img class="d-flex mr-3 z-depth-1" src="https://mdbootstrap.com/img/Photos/Others/placeholder1.jpg" width="62" alt="Generic placeholder image">
-        <div class="media-body">
-          <div class="d-sm-flex justify-content-between">
-            <p class="mt-1 mb-2">
-              <strong>Marthasteward </strong>
-              <span>– </span><span>January 28, 2020</span>
-            </p>
-            <ul class="rating mb-sm-0">
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="far fa-star fa-sm text-primary"></i>
-              </li>
-            </ul>
-          </div>
-          <p class="mb-0">Nice one, love it!</p>
-        </div>
-      </div>
+           {%if test.preparment%}
+            <h5>הכנה</h5>
+            <p>{{test.preparment}}</p>
+            {%endif%}
+            {%if test.kind%}
+            <h5>סוג</h5>
+            <p class="">{{test.kind}}</p>
+            {%endif%}
+            {%if test.limitations%}
+            <h5> הגבלות</h5>
+            <p class="">{{test.limitations}}</p>
+            {%endif%}
+            {%if test.vessel%}
+            <h5> כלי</h5>
+            <p class="">{{test.vessel}}</p>
+            {%endif%}
+            {%if test.color%}
+            <h5> צבע הפקק</h5>
+            <p class="">{{test.color}}</p>
+            {%endif%} 
+            {%if test.volume%}
+            <h5> נפח</h5>
+            <p class="">{{test.volume}}</p>
+            {%endif%}
+            {%if test.bloodamount%}
+            <h5> כמות הדם</h5>
+            <p class="">{{test.bloodamount}}</p>
+            {%endif%}
+            {%if test.pretransportconditions%}
+            <h5> צבע הפקק</h5>
+            <p class="">{{test.pretransportconditions}}</p>
+            {%endif%} 
+            {%if test.transportconditions%}
+            <h5> צבע הפקק</h5>
+            <p class="">{{test.transportconditions}}</p>
+            {%endif%}
+            {%if test.maxtime%}
+            <h5>זמן מקסימלי</h5>
+            <p class="">{{test.maxtime}}</p>
+            {%endif%}
+             {%if test.addressee%}
+            <h5>נמען</h5>
+            <p class="">{{test.addressee}}</p>
+            {%endif%}   
     </div>
+
     <div class="tab-pane fade" id="clinic" role="tabpanel" aria-labelledby="clinic-tab">
-      <h5><span>1</span> review for <span>Fantasy T-shirt</span></h5>
-      <div class="media mt-3 mb-4">
-        <img class="d-flex mr-3 z-depth-1" src="https://mdbootstrap.com/img/Photos/Others/placeholder1.jpg" width="62" alt="Generic placeholder image">
-        <div class="media-body">
-          <div class="d-sm-flex justify-content-between">
-            <p class="mt-1 mb-2">
-              <strong>Marthasteward </strong>
-              <span>– </span><span>January 28, 2020</span>
-            </p>
-            <ul class="rating mb-sm-0">
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="far fa-star fa-sm text-primary"></i>
-              </li>
-            </ul>
-          </div>
-          <p class="mb-0">Nice one, love it!</p>
-        </div>
-      </div>
+       {%if test.testpurpose%}
+      <h5> מטרת הבדיקה</h5>
+      <p class="">{{test.testpurpose}}</p>
+      {%endif%}
+      {%if test.clinicalinfo%}
+      <h5> מידע קליני</h5>
+      <p class="">{{test.clinicalinfo}}</p>
+      {%endif%}
     </div>
+
      <div class="tab-pane fade" id="method" role="tabpanel" aria-labelledby="method-tab">
-      <h5><span>1</span> review for <span>Fantasy T-shirt</span></h5>
-      <div class="media mt-3 mb-4">
-        <img class="d-flex mr-3 z-depth-1" src="https://mdbootstrap.com/img/Photos/Others/placeholder1.jpg" width="62" alt="Generic placeholder image">
-        <div class="media-body">
-          <div class="d-sm-flex justify-content-between">
-            <p class="mt-1 mb-2">
-              <strong>Marthasteward </strong>
-              <span>– </span><span>January 28, 2020</span>
-            </p>
-            <ul class="rating mb-sm-0">
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="far fa-star fa-sm text-primary"></i>
-              </li>
-            </ul>
-          </div>
-          <p class="mb-0">Nice one, love it!</p>
-        </div>
-      </div>
+            {%if test.method%}
+            <h5> שיטה</h5>
+            <p class="">{{test.method}}</p>
+            {%endif%}
+            {%if test.processingtime%}
+            <h5>זמן </h5>
+            <p class="">{{test.processingtime}}</p>
+            {%endif%}
+             {%if test.specialdays%}
+            <h5>ימים מיוחדים</h5>
+            <p class="">{{test.specialdays}}</p>
+            {%endif%}   
     </div>
+
     <div class="tab-pane fade" id="additional" role="tabpanel" aria-labelledby="additional-tab">
-      <h5><span>1</span> review for <span>Fantasy T-shirt</span></h5>
-      <div class="media mt-3 mb-4">
-        <img class="d-flex mr-3 z-depth-1" src="https://mdbootstrap.com/img/Photos/Others/placeholder1.jpg" width="62" alt="Generic placeholder image">
-        <div class="media-body">
-          <div class="d-sm-flex justify-content-between">
-            <p class="mt-1 mb-2">
-              <strong>Marthasteward </strong>
-              <span>– </span><span>January 28, 2020</span>
-            </p>
-            <ul class="rating mb-sm-0">
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="fas fa-star fa-sm text-primary"></i>
-              </li>
-              <li>
-                <i class="far fa-star fa-sm text-primary"></i>
-              </li>
-            </ul>
-          </div>
-          <p class="mb-0">Nice one, love it!</p>
-        </div>
-      </div>
+     {%if test.outtermonitoring%}
+      <h5>  ביקורת חיצונית</h5>
+      <p class="">{{test.outtermonitoring}}</p>
+      {%endif%}
+      {%if test.pricecode%}
+      <h5> קוד מחיר</h5>
+      <p class="">{{test.pricecode}}</p>
+      {%endif%}
+      {%if test.comments%}
+      <h5>  הערות</h5>
+      <p class="">{{test.comments}}</p>
+      {%endif%}
     </div>
   </div>
 
 </div>
+
 <!-- Classic tabs -->
 {% endblock%}

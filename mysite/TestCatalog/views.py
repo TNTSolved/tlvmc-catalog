@@ -39,9 +39,10 @@ class TestDetailView(View):
     template = "testView.html"
 
     def get(self,request,id):
-        test = Test.objects.filter(id = id)
+        test = Test.objects.get(id = id)
         context = {
-            "test" : test,}
+            "test" : test
+            }
 
 
         

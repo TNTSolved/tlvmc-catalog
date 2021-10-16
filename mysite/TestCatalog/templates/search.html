@@ -3,7 +3,7 @@
 
 {%block content%}
 <main class="pageWrapper">
-        <div class="container searchPage">
+        <div class="container searchPage" style="max-width:1000px;">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-8 col-lg-8">
                     <h1>אינדקס בדיקות מעבדה</h1>
@@ -86,7 +86,7 @@
                             <div id="childrenWrap">		
                             {%if tests%}
                                 {%for t in tests%}
-                                <a href="" title="{{t.name}}" class="row item">  
+                                <a href="/TestCatalog/test/{{t.id}}" title="{{t.name}}" class="row item">  
                                     <!-- ITEM ICON -->
 
                                     <!-- ITEM TITLE -->
