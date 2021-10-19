@@ -3,14 +3,14 @@
 
 {%block content%}
 <main class="pageWrapper">
-        <div class="container searchPage" style="max-width:1000px;">
+        <div class="container searchPage" style="max-width:100%;">
             <div class="row">
                 <div class="col-12 col-sm-12 col-md-8 col-lg-8">
                     <h1>אינדקס בדיקות מעבדה</h1>
                                 <div class="richtext"></div>
                     
                     <div class="searchRow">
-                        <input class="searchBox" id="searchByName" type="text" placeholder="מה שם הבדיקה?">
+                        <input class="searchBox" id="searchByName" type="text" placeholder="חפש בדיקה או לפי מעבדה">
                         <div onclick="searchByName()" class="searchBoxButton">חיפוש</div>
                     </div>
                     
@@ -80,7 +80,9 @@
                     <!-- END Letters Search -->
                 
                     <!--Doctors Search Items-->
+                        {%if tests%}
                         <h2 class="searchCategodyTitle">תוצאות חיפוש בדיקות</h2>
+                        {%endif%}
             
                         <div id ='searchResults'>
                             <div id="childrenWrap">		
@@ -100,11 +102,7 @@
                                     </div>
                                     </a>
                                 {%endfor%}
-                            {%else%}
-                                 
-                                 <div class="col-10 col-sm-11 col-md-11 col-lg-11 itemText">
-                                            <h3>הקש על אות או חפש בדיקה</h3>
-                                    </div>
+                         
 
                             {%endif%}
                             </div>

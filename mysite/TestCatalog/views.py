@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .models import Test
+from .models import Test, Lab
 from django.views.generic import View
 
  
@@ -20,19 +20,26 @@ class searchView(View):
                 tests = Test.objects.all()
         else:
             tests = None
-            
 
        
 
         context = {
 
-            "tests" : tests
+            "session" : "search",
+            "tests" : tests,
         }
     
         return render(request,template,context)
     
 def searchViewText(request,text):
-    return render(request,"search.html",context={"tests" : Test.objects.filter(name__icontains = text)})
+    tests = Test.objects.filter(name__icontains = text)
+    try:
+        tests |= Test.objects.filter(lab = Lab.objects.get(name = text))
+    except:
+        pass
+
+    context={"tests" : tests}
+    return render(request,"search.html",context)
 
 class TestDetailView(View):
 
@@ -41,6 +48,9 @@ class TestDetailView(View):
     def get(self,request,id):
         test = Test.objects.get(id = id)
         context = {
+            
+            "session" : "search",
+
             "test" : test
             }
 

@@ -69,6 +69,28 @@ h3{
     background-color: #34495e;
 }
 
+.button{
+    background-color:#4F7AA0;
+    padding: 5px;
+    color: #ffffff;
+    font-size: 16px;
+    display: inline-block;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor:pointer;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    
+}
+
+.button:hover{
+    background-color: #34495e;
+    color: #ffffff;
+    text-decoration: none;
+
+}
+
 
 .searchPage .clinicArrow{
     background-image: url(https://www.sheba.co.il/site/images/clinics_arrow_sprite.png);

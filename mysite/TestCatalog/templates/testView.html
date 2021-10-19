@@ -28,20 +28,26 @@
   <hr>
   <div class="tab-content" id="advancedTabContent">
     <div class="tab-pane fade show active" id="testInfo" role="tabpanel" aria-labelledby="testInfo-tab">
-      <h5>קוד הבדיקה</h5>
+      {%if test.lab%}
+      <h5>המעבדה המבצעת</h5>
+      <a class="button" onclick="window.top.location.href = '{{test.labLink}}' ">{{test.lab}}</a>
+      {%endif%}
+      {%if test.testcode%}
+      <h5>קוד ביצוע הבדיקה</h5>
       <p>{{test.testcode}}</p>
+      {%endif%}
       <h5>שם הבדיקה</h5>
       <p class="">{{test.name}}</p>
       {%if test.addname%}
-      <h5>שמות נוספים</h5>
+      <h5>שמות נוספים לבדיקה</h5>
       <p class="">{{test.addnames}}</p>
       {%endif%}
       {%if test.paneldetails%}
-      <h5>פרטי הפאנל</h5>
+      <h5>פירוט הפאנל</h5>
       <p class="">{{test.paneldetails}}</p>
       {%endif%}
       {%if test.posttests%}
-      <h5>בדיקות אוחרות</h5>
+      <h5>פירוט בדיקות המשך</h5>
       <p class="">{{test.posttests}}</p>
       {%endif%}
 
@@ -50,19 +56,19 @@
 
     <div class="tab-pane fade" id="sampling" role="tabpanel" aria-labelledby="sampling-tab">
            {%if test.preparment%}
-            <h5>הכנה</h5>
+            <h5>הכנת החולה לפני הדיגום</h5>
             <p>{{test.preparment}}</p>
             {%endif%}
             {%if test.kind%}
-            <h5>סוג</h5>
+            <h5>סוג הדגימה</h5>
             <p class="">{{test.kind}}</p>
             {%endif%}
             {%if test.limitations%}
-            <h5> הגבלות</h5>
+            <h5> מגבלות הבדיקה</h5>
             <p class="">{{test.limitations}}</p>
             {%endif%}
             {%if test.vessel%}
-            <h5> כלי</h5>
+            <h5> כלי קיבול לדגימה</h5>
             <p class="">{{test.vessel}}</p>
             {%endif%}
             {%if test.color%}
@@ -70,27 +76,27 @@
             <p class="">{{test.color}}</p>
             {%endif%} 
             {%if test.volume%}
-            <h5> נפח</h5>
+            <h5> נפח דגימה מינימאלי נדרש</h5>
             <p class="">{{test.volume}}</p>
             {%endif%}
             {%if test.bloodamount%}
-            <h5> כמות הדם</h5>
+            <h5> נפח דם נדרש למקבצי בדיקות שונים</h5>
             <p class="">{{test.bloodamount}}</p>
             {%endif%}
             {%if test.pretransportconditions%}
-            <h5> צבע הפקק</h5>
+            <h5>תנאי לקיחה ושימור טרם שינוע</h5>
             <p class="">{{test.pretransportconditions}}</p>
             {%endif%} 
             {%if test.transportconditions%}
-            <h5> צבע הפקק</h5>
+            <h5>תנאי שינוע</h5>
             <p class="">{{test.transportconditions}}</p>
             {%endif%}
             {%if test.maxtime%}
-            <h5>זמן מקסימלי</h5>
+            <h5>זמן מירבי מדיגום עד הגעה למעבדה</h5>
             <p class="">{{test.maxtime}}</p>
             {%endif%}
              {%if test.addressee%}
-            <h5>נמען</h5>
+            <h5>מען למשלוח בדיקות</h5>
             <p class="">{{test.addressee}}</p>
             {%endif%}   
     </div>
@@ -108,26 +114,26 @@
 
      <div class="tab-pane fade" id="method" role="tabpanel" aria-labelledby="method-tab">
             {%if test.method%}
-            <h5> שיטה</h5>
+            <h5> שיטת ביצוע הבדיקה</h5>
             <p class="">{{test.method}}</p>
             {%endif%}
             {%if test.processingtime%}
-            <h5>זמן </h5>
+            <h5>משך הזמן מקבלת הדגימה ועד הפצת תשובה  </h5>
             <p class="">{{test.processingtime}}</p>
             {%endif%}
              {%if test.specialdays%}
-            <h5>ימים מיוחדים</h5>
+            <h5>האם הבדיקה מבוצעת גם בערבים וסופ"ש? </h5>
             <p class="">{{test.specialdays}}</p>
             {%endif%}   
     </div>
 
     <div class="tab-pane fade" id="additional" role="tabpanel" aria-labelledby="additional-tab">
      {%if test.outtermonitoring%}
-      <h5>  ביקורת חיצונית</h5>
+      <h5>  בקרת איכות חיצונית</h5>
       <p class="">{{test.outtermonitoring}}</p>
       {%endif%}
       {%if test.pricecode%}
-      <h5> קוד מחיר</h5>
+      <h5> קוד מחיר משרד הבריאות</h5>
       <p class="">{{test.pricecode}}</p>
       {%endif%}
       {%if test.comments%}
