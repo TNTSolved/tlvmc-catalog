@@ -16,6 +16,9 @@ h3{
     color:#337ab7;
 }
 
+.itemTitle{
+    border-bottom: 1px #34495e;
+}
 .searchPage .lettersWrap{
     margin-top: 2%;
     padding-bottom: 20px;
