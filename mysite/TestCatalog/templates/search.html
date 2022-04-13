@@ -11,7 +11,10 @@
         <div class="row padded">
             <div class="searchRow">
                 <input class="searchBox" id="searchByName" type="text" placeholder="חפש בדיקה או לפי מעבדה">
+                <p id="demo"></p>
+
                 <div onclick="searchByName()" class="searchBoxButton padded">חיפוש</div>
+
 
             </div>
         </div>
@@ -197,7 +200,24 @@ location.href = "/TestCatalog/search/"+letter
 
 function searchByName()
 {
-    var text = document.getElementById('searchByName');
+    let error;
+    const regex = new RegExp('([A-Z]|[א-ת]|[a-z]|[0-9])+');
+    var text = document.getElementById('searchByName').value;
+    if(text.length < 3 )
+    {
+        error = "יש להקליד לפחות 3 אותיות";
+        document.getElementById("demo").innerHTML = error;
+        return;
+
+    }
+
+    if(!regex.test(text))
+    {
+        error ="נא להקליד אותיות בלבד";
+        document.getElementById("demo").innerHTML = error;
+        return;
+
+    }
     location.href = "/TestCatalog/search/text/"+ text.value;
 
 
