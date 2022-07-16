@@ -30,7 +30,7 @@ class Test(models.Model):
         verbose_name = "בדיקה"
         verbose_name_plural = "בדיקות"
 
-    lab = models.ForeignKey(Lab,on_delete=DO_NOTHING,db_column='Lab_ID', blank=True, null=True, verbose_name="המעבדה המבצעת")  # Field name made lowercase.
+    lab = models.ForeignKey(Lab,on_delete=DO_NOTHING,db_column='Lab_ID', blank=True, null=True, verbose_name="המעבדה המבצעת",related_name='lab_name')  # Field name made lowercase.
     testcode = models.TextField(db_column='TestCode', blank=True, null=True, verbose_name="קוד ביצוע הבדיקה")  # Field name made lowercase.
     name = models.TextField(db_column='Name', blank=True, null=True, verbose_name="שם הבדיקה")  # Field name made lowercase.
     addnames = models.TextField(db_column='AddNames', blank=True, null=True, verbose_name="שמות נוספים לבדיקה")  # Field name made lowercase.
@@ -56,7 +56,7 @@ class Test(models.Model):
     outtermonitoring = models.TextField(db_column='OutterMonitoring', blank=True, null=True, verbose_name="בקרת איכות חיצונית")  # Field name made lowercase.
     pricecode = models.TextField(db_column='PriceCode', blank=True, null=True, verbose_name="קוד מחיר משרד הבריאות")  # Field name made lowercase.
     comments = models.TextField(db_column='Comments', blank=True, null=True, verbose_name="הערות")  # Field name made lowercase.
-    
+
     def labLink(self):
         return self.lab.link
 

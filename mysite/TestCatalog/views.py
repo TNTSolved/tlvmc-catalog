@@ -1,10 +1,28 @@
 from cProfile import label
+from imghdr import tests
 from django.shortcuts import redirect, render
+from requests import session
 from .models import Test, Lab
 from django.views.generic import View
 from django.db.models.functions import Lower
+import csv
+from django.http import HttpResponse
 
- 
+
+class Session:
+    testss = Test.objects.all()
+    
+    @classmethod
+    def displayedTest(self,ts = None):
+        if(ts != None):
+            Session.testss = ts
+        return Session.testss
+      
+
+
+
+
+
 def getdistinct(tests):
         tests = tests
         panel = ''
@@ -36,6 +54,23 @@ def LabView(request,*args, **kwargs):
     link = kwargs['link']
     return redirect()
 
+def export_tests_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="tests.csv"'
+
+    writer = csv.writer(response)
+    writer.writerow(['מס׳','קוד בדיקה','שם בדיקה','שמות נוספים','פירוט בדיקות המשך','הכנת החולה לפני הדיגום','סוג הדגימה','מגבלות הבדיקה','כלי קיבול לדגימה ','צבע פקק ','נפח דגימה מינימלי נדרש','נפח דם נדרש למקבצי בדיקות שונים','תנאי לקיחה ושימור טרם שינוע','תנאי שינוע','זמן מירבי מדיגום עד הגעה למעבדה','מען למשלוח בדיקות','מטרת הבדיקה','מידע קליני','שיטת ביצוע הבדיקה','משך הזמן מקבלת הדגימה ועד הפצת תשובה ','האם הבדיקה מבוצעת גם בערבים וסופ"ש? ','בקרת איכות חיצונית','קוד מחיר משרד הבריאות','הערות','מעבדה מבצעת'])
+
+    x = Session.displayedTest()
+    tests = x.values_list('id','testcode', 'name', 'addnames','posttests','preparment','kind','limitations','vessel','color','volume','bloodamount','pretransportconditions','transportconditions','maxtime','addressee','testpurpose','clinicalinfo','method','processingtime','specialdays','outtermonitoring','pricecode','comments')
+
+    for test in tests:
+        assigner = list(test) 
+        assigner.append(x.get(id = test[0]).lab)
+        tuple(assigner)
+        writer.writerow(assigner)
+
+    return response
 
 class searchView(View):
     
@@ -51,14 +86,14 @@ class searchView(View):
             tests = None
 
        
-
         context = {
 
             "session" : "search",
             "tests" : tests,
             "labs" : labs
         }
-    
+  
+       
         return render(request,template,context)
     
 def searchViewText(request,text):
@@ -74,6 +109,7 @@ def searchViewText(request,text):
     except:
         pass
 
+
     context={
 
         "session" : "search",
@@ -87,7 +123,6 @@ def searchViewLab(request,lab):
     labs = Lab.objects.all()
     labname = Lab.objects.get(id = lab)
     tests = Test.objects.none
-
     try:
         tests = Test.objects.filter(lab = Lab.objects.get(id = lab))
         print(tests)
