@@ -49,11 +49,26 @@ h3{
     width: 210px;
     height: 46px;
     border: 1px solid #D3D3D3;
+    margin-top: 6px;
     padding: 0 10px;
     box-shadow: none;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
+}
+
+.dropdown-toggle:hover{
+    background-color: #34495e;
+    color: #ffffff;
+    text-decoration: none;
+
+
+
+
+}
+
+.dropdown-item{
+    text-align: right;
 }
 
 .searchBoxButton{

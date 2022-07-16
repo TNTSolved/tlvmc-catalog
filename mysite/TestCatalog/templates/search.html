@@ -6,154 +6,188 @@
     <div class="container searchPage" style="max-width:98%;">
         <div class="row">
             <h1>אינדקס בדיקות מעבדה</h1>
-
+        <p></p>
         </div>
-        <div class="row padded">
-            <div class="searchRow">
-                <input class="searchBox" id="searchByName" type="text" placeholder="חפש בדיקה או לפי מעבדה">
-                <p id="demo"></p>
-
-                <div onclick="searchByName()" class="searchBoxButton padded">חיפוש</div>
-
+        <div class="row">
+            <div class="row">
+                <div class="col">
+                    <input class="searchBox padded" id="searchByName" type="text" placeholder="חפש בדיקה"> 
+                        <p id="demo"></p>
+                </div>
+                <div class="col">
+                <div onclick="searchByName()" class="searchBoxButton ">חיפוש</div>
+                </div>
 
             </div>
+
+            
+
         </div>
+        <div class="row">
+            {%if labs%}
+            <div class="dropdown show">
+
+                <a class="searchBoxButton padded dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {%if lab%}
+                {{lab.name}}
+                {%else%}
+                    לפי מעבדה
+                {%endif%}
+                </a>
+              
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  
+                  {%for l in labs%}
+                  <a class="dropdown-item" href="/TestCatalog/search/lab/{{l.id}}"> {{l.name}} </a>
+                  {%endfor%}
+
+
+                  
+                </div>
+            </div>
+            {%endif%}
+        </div>
+            
 
         <!-- Letters Search -->
-        <div class="container float-right" style="max-width: 500px; ">
-            <div class="row" style="margin-top: 10px; margin-bottom:10px;">
+        <div class="row">
+            <div class="col">
+                <div class="container float-right" style="max-width: 500px; ">
+                    <div class="row" style="margin-top: 10px; margin-bottom:10px;">
 
-                <div class="col float-right">
-                    <div class="lettersWrapEng float-right" style="direction:ltr;">
-                        <div class="col">
-                            <div onclick="searchAlpha('a')" class="letterLink">a</div>
-                            <div onclick="searchAlpha('b')" class="letterLink">b</div>
-                            <div onclick="searchAlpha('c')" class="letterLink">c</div>
-                            <div onclick="searchAlpha('d')" class="letterLink">d</div>
+                        <div class="col float-right">
+                            <div class="lettersWrapEng float-right" style="direction:ltr;">
+                                <div class="col">
+                                    <div onclick="searchAlpha('a')" class="letterLink">a</div>
+                                    <div onclick="searchAlpha('b')" class="letterLink">b</div>
+                                    <div onclick="searchAlpha('c')" class="letterLink">c</div>
+                                    <div onclick="searchAlpha('d')" class="letterLink">d</div>
+                                </div>
+
+                                <div class="col">
+                                    <div onclick="searchAlpha('e')" class="letterLink">e</div>
+
+                                    <div onclick="searchAlpha('f')" class="letterLink">f</div>
+                                    <div onclick="searchAlpha('g')" class="letterLink">g</div>
+                                    <div onclick="searchAlpha('h')" class="letterLink">h</div>
+
+
+                                </div>
+
+                                <div class="col">
+                                    <div onclick="searchAlpha('i')" class="letterLink">i</div>
+                                    <div onclick="searchAlpha('j')" class="letterLink">j</div>
+                                    <div onclick="searchAlpha('k')" class="letterLink">k</div>
+                                    <div onclick="searchAlpha('l')" class="letterLink">l</div>
+
+
+                                </div>
+
+                                <div class="col">
+                                    <div onclick="searchAlpha('m')" class="letterLink">m</div>
+                                    <div onclick="searchAlpha('n')" class="letterLink">n</div>
+                                    <div onclick="searchAlpha('o')" class="letterLink">o</div>
+                                    <div onclick="searchAlpha('p')" class="letterLink">p</div>
+
+                                </div>
+
+                                <div class="col">
+                                    <div onclick="searchAlpha('q')" class="letterLink">q</div>
+                                    <div onclick="searchAlpha('r')" class="letterLink">r</div>
+                                    <div onclick="searchAlpha('s')" class="letterLink">s</div>
+                                    <div onclick="searchAlpha('t')" class="letterLink">t</div>
+
+                                </div>
+
+                                <div class="col">
+                                    <div onclick="searchAlpha('u')" class="letterLink">u</div>
+                                    <div onclick="searchAlpha('v')" class="letterLink">v</div>
+                                    <div onclick="searchAlpha('w')" class="letterLink">w</div>
+                                    <div onclick="searchAlpha('x')" class="letterLink">x</div>
+
+                                </div>
+
+                                <div class="col">
+                                    <div onclick="searchAlpha('y')" class="letterLink">y</div>
+                                    <div onclick="searchAlpha('z')" class="letterLink">z</div>
+
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="col">
-                            <div onclick="searchAlpha('e')" class="letterLink">e</div>
 
-                            <div onclick="searchAlpha('f')" class="letterLink">f</div>
-                            <div onclick="searchAlpha('g')" class="letterLink">g</div>
-                            <div onclick="searchAlpha('h')" class="letterLink">h</div>
-
-
-                        </div>
 
                         <div class="col">
-                            <div onclick="searchAlpha('i')" class="letterLink">i</div>
-                            <div onclick="searchAlpha('j')" class="letterLink">j</div>
-                            <div onclick="searchAlpha('k')" class="letterLink">k</div>
-                            <div onclick="searchAlpha('l')" class="letterLink">l</div>
+                            <div class="lettersWrapHeb">
+                                <div class="col">
+                                    <div onclick="searchAlpha('א')" class="letterLink">א</div>
+                                    <div onclick="searchAlpha('ב')" class="letterLink">ב</div>
+                                    <div onclick="searchAlpha('ג')" class="letterLink">ג</div>
+                                    <div onclick="searchAlpha('ד')" class="letterLink">ד</div>
 
+                                </div>
 
-                        </div>
+                                <div class="col">
+                                    <div onclick="searchAlpha('ה')" class="letterLink">ה</div>
+                                    <div onclick="searchAlpha('ו')" class="letterLink">ו</div>
+                                    <div onclick="searchAlpha('ז')" class="letterLink">ז</div>
+                                    <div onclick="searchAlpha('ח')" class="letterLink">ח</div>
 
-                        <div class="col">
-                            <div onclick="searchAlpha('m')" class="letterLink">m</div>
-                            <div onclick="searchAlpha('n')" class="letterLink">n</div>
-                            <div onclick="searchAlpha('o')" class="letterLink">o</div>
-                            <div onclick="searchAlpha('p')" class="letterLink">p</div>
+                                </div>
 
-                        </div>
+                                <div class="col">
+                                    <div onclick="searchAlpha('ט')" class="letterLink">ט</div>
+                                    <div onclick="searchAlpha('י')" class="letterLink">י</div>
+                                    <div onclick="searchAlpha('כ')" class="letterLink">כ</div>
+                                    <div onclick="searchAlpha('ך')" class="letterLink">ך</div>
 
-                        <div class="col">
-                            <div onclick="searchAlpha('q')" class="letterLink">q</div>
-                            <div onclick="searchAlpha('r')" class="letterLink">r</div>
-                            <div onclick="searchAlpha('s')" class="letterLink">s</div>
-                            <div onclick="searchAlpha('t')" class="letterLink">t</div>
+                                </div>
 
-                        </div>
+                                <div class="col">
+                                    <div onclick="searchAlpha('ל')" class="letterLink">ל</div>
+                                    <div onclick="searchAlpha('מ')" class="letterLink">מ</div>
+                                    <div onclick="searchAlpha('ם')" class="letterLink">ם</div>
+                                    <div onclick="searchAlpha('נ')" class="letterLink">נ</div>
 
-                        <div class="col">
-                            <div onclick="searchAlpha('u')" class="letterLink">u</div>
-                            <div onclick="searchAlpha('v')" class="letterLink">v</div>
-                            <div onclick="searchAlpha('w')" class="letterLink">w</div>
-                            <div onclick="searchAlpha('x')" class="letterLink">x</div>
+                                </div>
+                                <div class="col">
+                                    <div onclick="searchAlpha('ן')" class="letterLink">ן</div>
+                                    <div onclick="searchAlpha('ס')" class="letterLink">ס</div>
+                                    <div onclick="searchAlpha('ע')" class="letterLink">ע</div>
+                                    <div onclick="searchAlpha('פ')" class="letterLink">פ</div>
 
-                        </div>
+                                </div>
 
-                        <div class="col">
-                            <div onclick="searchAlpha('y')" class="letterLink">y</div>
-                            <div onclick="searchAlpha('z')" class="letterLink">z</div>
+                                <div class="col">
+                                    <div onclick="searchAlpha('ף')" class="letterLink">ף</div>
+                                    <div onclick="searchAlpha('צ')" class="letterLink">צ</div>
+                                    <div onclick="searchAlpha('ץ')" class="letterLink">ץ</div>
+                                    <div onclick="searchAlpha('ק')" class="letterLink">ק</div>
 
+                                </div>
+                                <div class="col">
+                                    <div onclick="searchAlpha('ר')" class="letterLink">ר</div>
+                                    <div onclick="searchAlpha('ש')" class="letterLink">ש</div>
+                                    <div onclick="searchAlpha('ת')" class="letterLink">ת</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
 
-
-                <div class="col">
-                    <div class="lettersWrapHeb">
-                        <div class="col">
-                            <div onclick="searchAlpha('א')" class="letterLink">א</div>
-                            <div onclick="searchAlpha('ב')" class="letterLink">ב</div>
-                            <div onclick="searchAlpha('ג')" class="letterLink">ג</div>
-                            <div onclick="searchAlpha('ד')" class="letterLink">ד</div>
-
-                        </div>
-
-                        <div class="col">
-                            <div onclick="searchAlpha('ה')" class="letterLink">ה</div>
-                            <div onclick="searchAlpha('ו')" class="letterLink">ו</div>
-                            <div onclick="searchAlpha('ז')" class="letterLink">ז</div>
-                            <div onclick="searchAlpha('ח')" class="letterLink">ח</div>
-
-                        </div>
-
-                        <div class="col">
-                            <div onclick="searchAlpha('ט')" class="letterLink">ט</div>
-                            <div onclick="searchAlpha('י')" class="letterLink">י</div>
-                            <div onclick="searchAlpha('כ')" class="letterLink">כ</div>
-                            <div onclick="searchAlpha('ך')" class="letterLink">ך</div>
-
-                        </div>
-
-                        <div class="col">
-                            <div onclick="searchAlpha('ל')" class="letterLink">ל</div>
-                            <div onclick="searchAlpha('מ')" class="letterLink">מ</div>
-                            <div onclick="searchAlpha('ם')" class="letterLink">ם</div>
-                            <div onclick="searchAlpha('נ')" class="letterLink">נ</div>
-
-                        </div>
-                        <div class="col">
-                            <div onclick="searchAlpha('ן')" class="letterLink">ן</div>
-                            <div onclick="searchAlpha('ס')" class="letterLink">ס</div>
-                            <div onclick="searchAlpha('ע')" class="letterLink">ע</div>
-                            <div onclick="searchAlpha('פ')" class="letterLink">פ</div>
-
-                        </div>
-
-                        <div class="col">
-                            <div onclick="searchAlpha('ף')" class="letterLink">ף</div>
-                            <div onclick="searchAlpha('צ')" class="letterLink">צ</div>
-                            <div onclick="searchAlpha('ץ')" class="letterLink">ץ</div>
-                            <div onclick="searchAlpha('ק')" class="letterLink">ק</div>
-
-                        </div>
-                        <div class="col">
-                            <div onclick="searchAlpha('ר')" class="letterLink">ר</div>
-                            <div onclick="searchAlpha('ש')" class="letterLink">ש</div>
-                            <div onclick="searchAlpha('ת')" class="letterLink">ת</div>
-                        </div>
+                    <div class="row">
+                        <div onclick="searchAlpha('all')" class="searchBoxButton">הצגת כל הבדיקות</div>
                     </div>
+
                 </div>
             </div>
-
-
-            <div class="row">
-                <div onclick="searchAlpha('all')" class="searchBoxButton">הצגת כל הבדיקות</div>
-            </div>
-
         </div>
 
-
+    
         <!-- END Letters Search -->
 
 
-        <!-- results-->
+            <!-- results-->
         <div class="row">
             {%if tests%}
             <h2 class="searchCategodyTitle">תוצאות חיפוש בדיקות</h2>
@@ -218,8 +252,9 @@ function searchByName()
         return;
 
     }
-    location.href = "/TestCatalog/search/text/"+ text.value;
-
+    else{
+    location.href = "/TestCatalog/search/text/"+ text;
+    }
 
 
 }

@@ -1,5 +1,7 @@
+from xml.dom.xmlbuilder import DOMEntityResolver
 from django.db import models
 from django.db.models.deletion import DO_NOTHING
+from django.http import QueryDict
 from django.shortcuts import redirect
 from django.urls import reverse
 
@@ -17,6 +19,10 @@ class Lab(models.Model):
 
     def get_absolute_url(self):
         return reverse("labView", kwargs={"link": self.link})
+
+    
+        
+
 
 class Test(models.Model):
     
@@ -56,6 +62,8 @@ class Test(models.Model):
 
     def __str__(self):
      return self.name
+
+    
 
     
     
