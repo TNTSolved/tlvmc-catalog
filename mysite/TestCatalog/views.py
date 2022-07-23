@@ -8,6 +8,7 @@ import csv
 from django.http import HttpResponse
 from django.utils import encoding
 import urllib.parse
+import xlwt
 
 
 class Session:
@@ -71,7 +72,52 @@ def export_tests_csv(request):
         tuple(assigner)
         writer.writerow(assigner)
 
+def export_tests_xslx(request):
+    response = HttpResponse(content_type='application/ms-excel')
+    response['Content-Disposition'] = 'attachment; filename="tests.xls"'
+
+    wb = xlwt.Workbook(encoding='utf-8')
+    ws = wb.add_sheet('Tests')
+
+    # Sheet header, first row
+    row_num = 0
+
+    font_style = xlwt.XFStyle()
+    font_style.font.bold = True
+
+    columns = ['מס׳','קוד בדיקה','שם בדיקה','שמות נוספים','פירוט בדיקות המשך','הכנת החולה לפני הדיגום','סוג הדגימה','מגבלות הבדיקה','כלי קיבול לדגימה ','צבע פקק ','נפח דגימה מינימלי נדרש','נפח דם נדרש למקבצי בדיקות שונים','תנאי לקיחה ושימור טרם שינוע','תנאי שינוע','זמן מירבי מדיגום עד הגעה למעבדה','מען למשלוח בדיקות','מטרת הבדיקה','מידע קליני','שיטת ביצוע הבדיקה','משך הזמן מקבלת הדגימה ועד הפצת תשובה ','האם הבדיקה מבוצעת גם בערבים וסופ"ש? ','בקרת איכות חיצונית','קוד מחיר משרד הבריאות','הערות','מעבדה מבצעת']
+
+
+    for col_num in range(len(columns)):
+        ws.write(row_num, col_num, columns[col_num], font_style)
+
+    # Sheet body, remaining rows
+    font_style = xlwt.XFStyle()
+    x = Session.displayedTest()
+    tests = x.values_list('id','testcode', 'name', 'addnames','posttests','preparment','kind','limitations','vessel','color','volume','bloodamount','pretransportconditions','transportconditions','maxtime','addressee','testpurpose','clinicalinfo','method','processingtime','specialdays','outtermonitoring','pricecode','comments')
+    
+    for test in tests:
+        row_num += 1
+
+        assigner = list(test)
+        try:
+            labname = x.get(id = test[0]).lab.name
+        except: 
+            labname = None
+       
+
+        assigner.append(labname)
+
+        tuple(assigner)
+        for col_num in range(len(assigner)):
+            ws.write(row_num, col_num, assigner[col_num], font_style)
+
+
+    wb.save(response)
     return response
+
+
+
 
 class searchView(View):
     
@@ -104,15 +150,26 @@ def searchViewText(request,text):
 
     tests = Test.objects.filter(name__icontains = text)
     labs = Lab.objects.all()
-    print(labs)
+    
     try:
         tests |= Test.objects.filter(lab = Lab.objects.get(name = text))
-        tests |= Test.objects.filter(addnames__icontains = text)
-        tests |= Test.objects.filter(paneldetails__icontains = text)
-        tests |= Test.objects.filter(clinicalinfo__icontains = text)
-        tests = getdistinct(tests.distinct())
     except:
-        pass
+            pass
+    try:
+        tests |= Test.objects.filter(addnames__icontains = text)
+    except:
+            pass
+    try:
+        tests |= Test.objects.filter(paneldetails__icontains = text)
+    except:
+            pass
+    try:
+        tests |= Test.objects.filter(clinicalinfo__icontains = text)
+    except:
+            pass
+
+
+    tests = getdistinct(tests.distinct())
 
 
     context={
@@ -147,15 +204,16 @@ class TestDetailView(View):
     template = "testView.html"
 
     def get(self,request,id):
-        test = Test.objects.get(id = id)
+        test1 = Test.objects.get(id = id)
+        panel = Test.objects.filter(testcode = test1.testcode)
+        if(len(panel) == 1):
+           panel = None
+        
+        
+       
         context = {
-            
-            "session" : "search",
-
-            "test" : test
+            "test" : test1,
+            "panel" : panel
             }
 
-
-        
-    
         return render(request,self.template,context)

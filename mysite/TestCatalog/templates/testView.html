@@ -47,10 +47,18 @@
                         <h5>שמות נוספים לבדיקה</h5>
                         <p class="">{{test.addnames}}</p>
                         {%endif%}
-                        {%if test.paneldetails%}
+                        
+                        
+
+                        {%if panel%}
                         <h5>פירוט הפאנל</h5>
-                        <p class="">{{test.paneldetails}}</p>
+                        {% for p in panel %}
+                        <p class="">{{p.name}}</p>
+                        {%endfor%}
                         {%endif%}
+                        
+
+
                         {%if test.posttests%}
                         <h5>פירוט בדיקות המשך</h5>
                         <p class="">{{test.posttests}}</p>

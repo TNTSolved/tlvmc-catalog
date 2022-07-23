@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import TestDetailView, export_tests_csv, searchView, searchViewLab, searchViewText, export_tests_csv
+from .views import TestDetailView, export_tests_csv, searchView, searchViewLab, searchViewText, export_tests_csv, export_tests_xslx
 
 urlpatterns = [
     path('search/', searchView.as_view()),
@@ -7,7 +7,7 @@ urlpatterns = [
     path('search/<letter>', searchView.as_view()),
     path('search/text/<text>', searchViewText),
     path('search/lab/<lab>', searchViewLab),
-    path('export/csv/', export_tests_csv),  
+    path('export/csv/', export_tests_xslx),  
     path('test/<int:id>', TestDetailView.as_view())
 
 
