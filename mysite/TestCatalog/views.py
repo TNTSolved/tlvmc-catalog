@@ -112,7 +112,7 @@ def export_tests_xslx(request):
         for col_num in range(len(assigner)):
             ws.write(row_num, col_num, assigner[col_num], font_style)
 
-
+    ws.cols_right_to_left = True
     wb.save(response)
     return response
 
