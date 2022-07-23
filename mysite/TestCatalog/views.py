@@ -1,4 +1,5 @@
 from cProfile import label
+from cgi import test
 from imghdr import tests
 from django.shortcuts import redirect, render
 from .models import Test, Lab
@@ -23,6 +24,11 @@ class Session:
 
 
 
+def getTestName(test):
+    if Test.objects.get(id = test.id).name:
+        return Test.objects.get(id = test.id).name
+    else:
+        return ""
 
 
 def getdistinct(tests):
@@ -47,6 +53,8 @@ def getdistinct(tests):
             
         for p in empties:
             unified.append(p)
+        
+        unified.sort(key = getTestName)
         
         return unified
 
@@ -205,9 +213,15 @@ class TestDetailView(View):
 
     def get(self,request,id):
         test1 = Test.objects.get(id = id)
-        panel = Test.objects.filter(testcode = test1.testcode)
-        if(len(panel) == 1):
-           panel = None
+        if(test1.testcode !=  "הבדיקה אינה ממוחשבת" and test1.testcode != ""):
+            panel = Test.objects.filter(testcode = test1.testcode)
+            if(len(panel) == 1):
+                panel = None
+        else:
+            panel = None
+       
+            
+       
         
         
        
