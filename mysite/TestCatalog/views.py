@@ -1,12 +1,13 @@
 from cProfile import label
 from imghdr import tests
 from django.shortcuts import redirect, render
-from requests import session
 from .models import Test, Lab
 from django.views.generic import View
 from django.db.models.functions import Lower
 import csv
 from django.http import HttpResponse
+from django.utils import encoding
+import urllib.parse
 
 
 class Session:
@@ -75,11 +76,13 @@ def export_tests_csv(request):
 class searchView(View):
     
     def get(self,request,letter=""):
+        letter = urllib.parse.unquote(letter,'windows-1255')
         template = "search.html"
         message = None
         labs = Lab.objects.all()
         if(letter != ""):
-            tests = getdistinct(Test.objects.filter(name__startswith=letter))
+            tests = getdistinct(Test.objects.filter(name__startswith=encoding.smart_str(letter, encoding='utf-8', strings_only=False, errors='strict')))
+          
             if(letter == "all"):
                 tests = getdistinct(Test.objects.all())
         else:
@@ -97,6 +100,8 @@ class searchView(View):
         return render(request,template,context)
     
 def searchViewText(request,text):
+    text = urllib.parse.unquote(text,'windows-1255')
+
     tests = Test.objects.filter(name__icontains = text)
     labs = Lab.objects.all()
     print(labs)
