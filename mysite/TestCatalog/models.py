@@ -10,7 +10,7 @@ class Lab(models.Model):
     class Meta:
         verbose_name = "מעבדה"
         verbose_name_plural = "מעבדות"
-        ordering = ('name')
+        ordering = ['name']
 
     
     name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
