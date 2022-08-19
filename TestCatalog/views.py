@@ -11,7 +11,6 @@ from django.utils import encoding
 import urllib.parse
 import xlwt
 
-
 class Session:
     testss = Test.objects.all()
 
