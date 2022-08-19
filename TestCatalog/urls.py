@@ -3,6 +3,7 @@ from .views import TestDetailView, export_tests_csv, searchView, searchViewLab, 
 
 urlpatterns = [
     path('search/', searchView.as_view()),
+    path('', searchView.as_view()),
     path('search/text/', searchView.as_view()),
     path('search/<letter>', searchView.as_view()),
     path('search/text/<path:text>', searchViewText),
